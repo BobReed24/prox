@@ -1,14 +1,7 @@
 name: Publish npm Package
 
 on:
-  # Trigger the action manually from the GitHub UI
   workflow_dispatch:
-    # You can optionally add inputs here for more flexibility
-    # inputs:
-    #   example_input:
-    #     description: 'An example input'
-    #     required: true
-    #     default: 'default_value'
 
 jobs:
   publish:
@@ -24,7 +17,7 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm i
+        run: npm install
 
       - name: Configure npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
